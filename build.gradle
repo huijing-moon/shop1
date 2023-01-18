@@ -32,11 +32,11 @@ tasks.named('test') {
 }
 
 
-def frontendDir = "$projectDir/src/main/frontend"
+def frontendDir = "blog/src/main/frontend"
 
 sourceSets {
     main {
-        resources { srcDirs = ["$projectDir/src/main/resources"]
+        resources { srcDirs = ["blog/src/main/resources"]
         }
     }
 }
