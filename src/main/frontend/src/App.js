@@ -8,7 +8,7 @@ function App() {
   const [hello, setHello] = useState('')
 
   useEffect(() => {
-    axios.get('/g/hello')
+    axios.get('/')
         .then(response => setHello(response.data))
         .catch(error => console.log(error))
   }, []);

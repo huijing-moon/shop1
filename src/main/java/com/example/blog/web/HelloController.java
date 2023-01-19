@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class HelloController {
@@ -15,20 +16,9 @@ public class HelloController {
     ProductRepository productRepository;
 
     @GetMapping("/page/product/list")
-    public String test(){
-       Long id= 10L;
+    public List<Product> test( ){
 
-        List<Product> result = productRepository.findAll();
-
-        System.out.println("==============================");
-
-        if(result.size() > 0){
-            System.out.println(result);
-            return "8979879";
-        }
-        else{
-            return "rhihi";
-        }
+       return productRepository.findAll();
     }
 
 }

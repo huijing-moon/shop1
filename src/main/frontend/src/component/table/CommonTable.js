@@ -6,7 +6,7 @@ const CommonTable = props => {
     const {headerName, children} =props;
 
     return (
-        <Table>
+        <Table striped bordered hover>
             <thead>
             <tr>
                 {
