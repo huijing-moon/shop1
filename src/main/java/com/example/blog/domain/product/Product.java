@@ -32,5 +32,14 @@ public class Product extends BaseTimeEntity {
     private String category;
 
 
+    @Column(name="description")
+    private String description;
+
+    public void update(String productNm, int price,String category, String description){
+        this.description = description;
+        this.productNm = productNm;
+        this.price = price;
+        this.category = category;
+    }
 
 }

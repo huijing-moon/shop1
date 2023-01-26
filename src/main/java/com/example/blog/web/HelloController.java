@@ -1,24 +1,38 @@
 package com.example.blog.web;
 
+import com.example.blog.DTO.product.ProductCreateRequestDto;
+import com.example.blog.DTO.product.ProductCreateResponseDto;
 import com.example.blog.domain.product.Product;
 import com.example.blog.repository.ProductRepository;
+import com.example.blog.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @RestController
 public class HelloController {
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductService productService;
+
 
     @GetMapping("/page/product/list")
-    public List<Product> test( ){
+    public List<ProductCreateResponseDto> test( ){
 
-       return productRepository.findAll();
+//        return null;
+       return productService.findAll();
+    }
+
+    @PostMapping("/page/product/save")
+    public Long save(@RequestBody final ProductCreateRequestDto params){
+
+//        return null;
+        return productService.save(params);
     }
 
 }
