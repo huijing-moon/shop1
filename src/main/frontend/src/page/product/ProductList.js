@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {Badge, Table} from "react-bootstrap";
+import {Badge, Button, NavLink, Table} from "react-bootstrap";
 import CommonTable from "../../component/table/CommonTable";
 import CommonTableRow from "../../component/table/CommonTableRow";
 import CommonTableCoulumn from "../../component/table/CommonTableCoulumn";
 import HeaderComponent from "../../component/header/HeaderComponent";
 import axios from "axios";
+import {BrowserRouter, Link, Route} from "react-router-dom";
+import ProductView from "./ProductView";
 
 function ProductList () {
     const baseUrl = "http://localhost:8080"
@@ -53,6 +55,7 @@ function ProductList () {
                 ))}
             </CommonTable>
 
+            <Route path="/page/product/view" element={<ProductView />} />
         </>
     )
 

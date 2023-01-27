@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {Button} from "react-bootstrap";
+import axios from "axios";
 
-const ProductView = props => {
+
+
+function ProductView() {
+
+
+
+
     return (
         <>
-
+            <Button>djfkdjhkj</Button>
         </>
     )
 }

@@ -1,5 +1,6 @@
 package com.example.blog.DTO.product;
 
+import com.example.blog.domain.BaseTimeEntity;
 import com.example.blog.domain.product.Product;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,6 +17,8 @@ public class ProductCreateRequestDto {
    private Integer price;
 
    private String productNm;
+
+
 
 
     public Product toEntity(){

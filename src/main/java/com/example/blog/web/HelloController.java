@@ -24,14 +24,17 @@ public class HelloController {
     @GetMapping("/page/product/list")
     public List<ProductCreateResponseDto> test( ){
 
-//        return null;
        return productService.findAll();
+    }
+
+    @GetMapping("/page/product/view")
+    public String view(){
+        return null;
     }
 
     @PostMapping("/page/product/save")
     public Long save(@RequestBody final ProductCreateRequestDto params){
 
-//        return null;
         return productService.save(params);
     }
 
