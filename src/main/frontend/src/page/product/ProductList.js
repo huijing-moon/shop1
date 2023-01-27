@@ -40,7 +40,6 @@ function ProductList () {
             <h5>
                 상품목록   <Badge pill bg="dark">New</Badge>
             </h5>
-
             <CommonTable headerName={['품번', '품명','카테고리','설명', '가격', '등록일','수정일']}>
                 {product.map(products => (
                 <CommonTableRow>
@@ -54,8 +53,6 @@ function ProductList () {
                 </CommonTableRow>
                 ))}
             </CommonTable>
-
-            <Route path="/page/product/view" element={<ProductView />} />
         </>
     )
 

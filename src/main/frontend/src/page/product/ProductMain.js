@@ -1,13 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ProductList from "./ProductList";
-import {BrowserRouter} from "react-router-dom";
+import axios from "axios";
 
 const ProductMain = props => {
     return (
         <>
-            <BrowserRouter>
             <ProductList />
-            </BrowserRouter>
         </>
     )
 }

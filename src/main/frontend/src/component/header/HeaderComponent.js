@@ -11,7 +11,6 @@ function HeaderComponent() {
                     <Nav.Link href="#home">home</Nav.Link>
                     <Nav.Link href="#home">features</Nav.Link>
                     <Nav.Link href="#home">pricing</Nav.Link>
-
                 </Nav>
             </Container>
 

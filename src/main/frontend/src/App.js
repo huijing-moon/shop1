@@ -3,24 +3,25 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from 'react-bootstrap';
 import ProductMain from "./page/product/ProductMain";
-import {Route, Router} from "react-router-dom";
-import ProductView from "./page/product/ProductView";
-
+import {Link, Route, Router, Routes} from "react-router-dom";
+import HeaderComponent from "./component/header/HeaderComponent";
+import Home from "./page/basic/Home";
+import About from "./page/basic/About";
 function App() {
-  const [hello, setHello] = useState('')
-
-  useEffect(() => {
-    axios.get('/')
-        .then(response => setHello(response.data))
-        .catch(error => console.log(error))
-  }, []);
+  // const [hello, setHello] = useState('')
+  //
+  // useEffect(() => {
+  //   axios.get('/')
+  //       .then(response => setHello(response.data))
+  //       .catch(error => console.log(error))
+  // }, []);
 
   return (
-      <div>
-          <ProductMain/>
-
-      </div>
-
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/product" element={<ProductMain />} />
+      </Routes>
   );
 }
 
