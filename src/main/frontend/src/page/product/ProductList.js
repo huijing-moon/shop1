@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Badge, Button, NavLink, Table} from "react-bootstrap";
+import {Badge, Button, Container, NavLink, Table} from "react-bootstrap";
 import CommonTable from "../../component/table/CommonTable";
 import CommonTableRow from "../../component/table/CommonTableRow";
 import CommonTableCoulumn from "../../component/table/CommonTableCoulumn";
@@ -40,6 +40,10 @@ function ProductList () {
             <h5>
                 상품목록   <Badge pill bg="dark">New</Badge>
             </h5>
+            <div>
+                <Link to="/product/create"><Button>상품 등록 </Button></Link>
+            </div>
+            <Container>
             <CommonTable headerName={['품번', '품명','카테고리','설명', '가격', '등록일','수정일']}>
                 {product.map(products => (
                 <CommonTableRow>
@@ -53,6 +57,7 @@ function ProductList () {
                 </CommonTableRow>
                 ))}
             </CommonTable>
+            </Container>
         </>
     )
 

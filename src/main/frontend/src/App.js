@@ -7,20 +7,16 @@ import {Link, Route, Router, Routes} from "react-router-dom";
 import HeaderComponent from "./component/header/HeaderComponent";
 import Home from "./page/basic/Home";
 import About from "./page/basic/About";
+import ProductView from "./page/product/ProductView";
+import './App.css';
 function App() {
-  // const [hello, setHello] = useState('')
-  //
-  // useEffect(() => {
-  //   axios.get('/')
-  //       .then(response => setHello(response.data))
-  //       .catch(error => console.log(error))
-  // }, []);
 
   return (
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<ProductMain />} />
+          <Route path="/product/create" element={<ProductView />} />
       </Routes>
   );
 }

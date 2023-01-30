@@ -19,8 +19,6 @@ public class ProductCreateRequestDto {
    private String productNm;
 
 
-
-
     public Product toEntity(){
         return Product.builder()
                 .category(category)
