@@ -39,4 +39,10 @@ public class ProductService {
         return productId;
     }
 
+    @Transactional
+    public Long findById(final Long productId, final ProductCreateRequestDto params){
+        Product entity = productRepository.findById(productId).orElseThrow(() -> new RuntimeException());
+        return productId;
+    }
+
 }

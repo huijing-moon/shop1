@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -26,6 +29,14 @@ public class ProductTest {
             productRepository.save(product);
         });
     }
+
+
+//    @Test
+//    public Product productTest(){
+//        Optional<Product> product = productRepository.findById(9L);
+//        product.ifPresent(product.get().getDescription());
+//
+//    }
 
 
 }

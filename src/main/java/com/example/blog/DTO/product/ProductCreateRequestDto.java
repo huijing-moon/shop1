@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class ProductCreateRequestDto {
-
    private String category;
 
    private String description;

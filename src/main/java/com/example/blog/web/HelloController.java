@@ -7,18 +7,18 @@ import com.example.blog.repository.ProductRepository;
 import com.example.blog.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
 public class HelloController {
 
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
 
     @GetMapping("/page/product/list")
@@ -30,6 +30,12 @@ public class HelloController {
     @GetMapping("/page/product/view")
     public String view(){
         return null;
+    }
+
+    @GetMapping("/page/product/view/selectOne")
+    public Product selectItem(@RequestParam Long productId){
+        Optional<Product> product = productRepository.findById(productId);
+        return product.get();
     }
 
     @PostMapping("/page/product/save")
