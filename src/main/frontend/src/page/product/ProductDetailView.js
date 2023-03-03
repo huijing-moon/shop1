@@ -5,7 +5,9 @@ import HeaderComponent from "../../component/header/HeaderComponent";
 import Swal from 'sweetalert2';
 
 
-function ProductView() {
+function ProductDetailView ({ match }) {
+
+    // const { productId } = match.productId;
     const [values, setValues]= useState({
         productNm :"",
         price :"",
@@ -124,4 +126,4 @@ function ProductView() {
         </>
     )
 }
-export default ProductView;
+export default ProductDetailView;

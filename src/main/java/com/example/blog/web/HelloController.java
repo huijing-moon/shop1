@@ -2,16 +2,13 @@ package com.example.blog.web;
 
 import com.example.blog.DTO.product.ProductCreateRequestDto;
 import com.example.blog.DTO.product.ProductCreateResponseDto;
-import com.example.blog.domain.product.Product;
 import com.example.blog.repository.ProductRepository;
 import com.example.blog.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -32,10 +29,10 @@ public class HelloController {
         return null;
     }
 
-    @GetMapping("/page/product/view/selectOne")
-    public Product selectItem(@RequestParam Long productId){
-        Optional<Product> product = productRepository.findById(productId);
-        return product.get();
+    @GetMapping("/page/product/view/{id}")
+    public Optional<ProductCreateResponseDto> selectItem(@PathVariable("id") Long productId ){
+        Optional<ProductCreateResponseDto> product = Optional.ofNullable(productService.findId(productId));
+        return product;
     }
 
     @PostMapping("/page/product/save")

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -40,9 +41,12 @@ public class ProductService {
     }
 
     @Transactional
-    public Long findById(final Long productId, final ProductCreateRequestDto params){
-        Product entity = productRepository.findById(productId).orElseThrow(() -> new RuntimeException());
-        return productId;
+    public ProductCreateResponseDto findId(final Long productId){
+        Optional<Product> entity = productRepository.findById(productId);
+        Product product = entity.get();
+
+        ProductCreateResponseDto PDto = new ProductCreateResponseDto(product);
+        return PDto;
     }
 
 }

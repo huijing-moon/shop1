@@ -6,7 +6,7 @@ import CommonTableCoulumn from "../../component/table/CommonTableCoulumn";
 import HeaderComponent from "../../component/header/HeaderComponent";
 import axios from "axios";
 import {BrowserRouter, Link, Route} from "react-router-dom";
-import ProductView from "./ProductView";
+import ProductCreateView from "./ProductCreateView";
 
 function ProductList () {
     const baseUrl = "http://localhost:8080"
@@ -44,7 +44,7 @@ function ProductList () {
                 <Link to="/product/create"><Button>상품 등록 </Button></Link>
             </div>
             <Container>
-            <CommonTable headerName={['품번', '품명','카테고리','설명', '가격', '등록일','수정일']}>
+            <CommonTable headerName={['품번', '품명','카테고리','설명', '가격', '등록일','수정일','관리']}>
                 {product.map(products => (
                 <CommonTableRow>
                     <CommonTableCoulumn key={products.productId}>{products.productId}</CommonTableCoulumn>
@@ -54,6 +54,7 @@ function ProductList () {
                     <CommonTableCoulumn>{products.price}</CommonTableCoulumn>
                     <CommonTableCoulumn key={products.created}>{products.created}</CommonTableCoulumn>
                     <CommonTableCoulumn>{products.modified}</CommonTableCoulumn>
+                    <CommonTableCoulumn><Link to="/product/detail/:productId"><Button>관리</Button></Link></CommonTableCoulumn>
                 </CommonTableRow>
                 ))}
             </CommonTable>

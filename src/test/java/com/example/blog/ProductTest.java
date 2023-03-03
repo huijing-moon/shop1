@@ -31,12 +31,12 @@ public class ProductTest {
     }
 
 
-//    @Test
-//    public Product productTest(){
-//        Optional<Product> product = productRepository.findById(9L);
-//        product.ifPresent(product.get().getDescription());
-//
-//    }
+    @Test
+    public void productTest(){
+        Optional<Product> product1 = productRepository.findById(1L);
+        Product product = product1.get();
+        System.out.println(product);
+    }
 
 
 }
