@@ -59,7 +59,7 @@ function ProductDetailView (props) {
 const saveQuestion= (e) => {
         e.preventDefault();
         Swal.fire({
-            title: '저장하시겠습니까?',
+            title: '수정하시겠습니까?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
@@ -67,7 +67,7 @@ const saveQuestion= (e) => {
             cancelButtonColor: '#d33',
             confirmButtonText: '등록'
         }).then((result) => {
-                axios.post('http://localhost:8080/page/product/save',
+                axios.post('http://localhost:8080/page/product/update/'+ productId,
                     {
                         productNm :values.productNm,
                         price :values.price,

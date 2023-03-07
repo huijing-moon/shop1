@@ -41,4 +41,9 @@ public class HelloController {
         return productService.save(params);
     }
 
+    @PostMapping("/page/product/update/{id}")
+    public Long update(@PathVariable Long id, @RequestBody ProductCreateRequestDto requestDto){
+        return productService.update(id, requestDto);
+    }
+
 }
