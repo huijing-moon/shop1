@@ -5,13 +5,16 @@ import CommonTableRow from "../../component/table/CommonTableRow";
 import CommonTableCoulumn from "../../component/table/CommonTableCoulumn";
 import HeaderComponent from "../../component/header/HeaderComponent";
 import axios from "axios";
-import {BrowserRouter, Link, Route} from "react-router-dom";
-import ProductCreateView from "./ProductCreateView";
+import {BrowserRouter, Link, Route, useNavigate} from "react-router-dom";
 
-function ProductList () {
+function ProductList (props) {
+
     const baseUrl = "http://localhost:8080"
 
     const [product, setProduct] = useState(null);
+
+
+    console.log(props)
 
     const getProduct= async () =>{
         setProduct(null);
@@ -33,6 +36,7 @@ function ProductList () {
 
     if(!product) return null;
 
+
     return (
 
         <>
@@ -43,6 +47,7 @@ function ProductList () {
             <div>
                 <Link to="/product/create"><Button>상품 등록 </Button></Link>
             </div>
+
             <Container>
             <CommonTable headerName={['품번', '품명','카테고리','설명', '가격', '등록일','수정일','관리']}>
                 {product.map(products => (
@@ -54,11 +59,13 @@ function ProductList () {
                     <CommonTableCoulumn>{products.price}</CommonTableCoulumn>
                     <CommonTableCoulumn key={products.created}>{products.created}</CommonTableCoulumn>
                     <CommonTableCoulumn>{products.modified}</CommonTableCoulumn>
-                    <CommonTableCoulumn><Link to="/product/detail/:productId"><Button>관리</Button></Link></CommonTableCoulumn>
+                    <CommonTableCoulumn><Link to={{pathname:`/product/detail/${products.productId}`}}>
+                        <Button>관리</Button></Link></CommonTableCoulumn>
                 </CommonTableRow>
                 ))}
             </CommonTable>
             </Container>
+
         </>
     )
 

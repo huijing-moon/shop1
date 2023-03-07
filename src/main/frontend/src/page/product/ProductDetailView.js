@@ -3,17 +3,38 @@ import {Badge, Button, Container, Form, InputGroup} from "react-bootstrap";
 import axios from "axios";
 import HeaderComponent from "../../component/header/HeaderComponent";
 import Swal from 'sweetalert2';
+import {useParams} from "react-router-dom";
 
 
-function ProductDetailView ({ match }) {
+function ProductDetailView (props) {
 
-    // const { productId } = match.productId;
-    const [values, setValues]= useState({
-        productNm :"",
-        price :"",
-        description :"",
-        category :"",
-    });
+    const baseUrl = "http://localhost:8080"
+    const [values, setValues]= useState(
+        {
+            productNm :"",
+            price :"",
+            description :"",
+            category :"",
+        }
+    )
+
+    const params = useParams();
+    console.log('params====' + params)
+
+    const productId = params.productId
+    console.log(productId)
+
+    useEffect(()=> {
+        const fetchPost = async ()=> {
+            let res = await axios
+                .get(baseUrl + "/page/product/view/" + productId)
+                .then((response) => {
+                    setValues(response.data);
+                })
+        }
+        fetchPost();
+
+        }, []);
 
     const onChange= (e) => {
         const {name, value} = e.target;
@@ -33,7 +54,10 @@ function ProductDetailView ({ match }) {
         })
     }
 
-    const saveQuestion= () => {
+
+
+const saveQuestion= (e) => {
+        e.preventDefault();
         Swal.fire({
             title: '저장하시겠습니까?',
             text: "You won't be able to revert this!",
@@ -68,6 +92,8 @@ function ProductDetailView ({ match }) {
         )
     }
 
+    console.log('values===='+values);
+    console.log('values===='+values);
 
 
     return (

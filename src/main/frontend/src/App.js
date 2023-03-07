@@ -10,6 +10,7 @@ import About from "./page/basic/About";
 import ProductCreateView from "./page/product/ProductCreateView";
 import './App.css';
 import ProductDetailView from "./page/product/ProductDetailView";
+import ProductList from "./page/product/ProductList";
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<ProductMain />} />
+          <Route path="/product/list" element={<ProductList />} />
           <Route path="/product/create" element={<ProductCreateView />} />
           <Route path="/product/detail/:productId" element={<ProductDetailView />} />
       </Routes>
